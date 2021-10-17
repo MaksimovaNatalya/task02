@@ -59,4 +59,15 @@ public class TabletPC extends Appliance {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "TabletPC{" +
+                "batteryCapacity=" + batteryCapacity +
+                ", displayInches=" + displayInches +
+                ", memoryRom=" + memoryRom +
+                ", flashMemoryCapacity=" + flashMemoryCapacity +
+                ", color='" + color + '\'' +
+                '}';
+    }
 }

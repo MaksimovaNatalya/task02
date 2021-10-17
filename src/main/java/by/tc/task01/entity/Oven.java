@@ -70,5 +70,17 @@ public class Oven extends Appliance {
     public void setWidth(double width) {
         this.width = width;
     }
+
+    @Override
+    public String toString() {
+        return "Oven{" +
+                "powerConsumption=" + powerConsumption +
+                ", weight=" + weight +
+                ", capacity=" + capacity +
+                ", depth=" + depth +
+                ", height=" + height +
+                ", width=" + width +
+                '}';
+    }
 }
 

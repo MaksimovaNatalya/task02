@@ -71,4 +71,16 @@ public class Laptop extends Appliance{
     public void setDisplayInchs(int displayInchs) {
         this.displayInchs = displayInchs;
     }
+
+    @Override
+    public String toString() {
+        return "Laptop{" +
+                "batteryCapacity=" + batteryCapacity +
+                ", os='" + os + '\'' +
+                ", memoryRom=" + memoryRom +
+                ", systemMemory=" + systemMemory +
+                ", cpu=" + cpu +
+                ", displayInchs=" + displayInchs +
+                '}';
+    }
 }

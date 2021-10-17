@@ -70,4 +70,16 @@ public class Refrigerator extends Appliance{
     public void setWidth(double width) {
         this.width = width;
     }
+
+    @Override
+    public String toString() {
+        return "Refrigerator{" +
+                "powerConsumption=" + powerConsumption +
+                ", weight=" + weight +
+                ", freezerCapacity=" + freezerCapacity +
+                ", overallCapacity=" + overallCapacity +
+                ", height=" + height +
+                ", width=" + width +
+                '}';
+    }
 }
