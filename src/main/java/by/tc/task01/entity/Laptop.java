@@ -4,18 +4,18 @@ public class Laptop extends Appliance{
 	// you may add your own code here
 
 
-    private double batteryCapacity;
+    private String batteryCapacity;
     private String os;
-    private int memoryRom;
-    private int systemMemory;
-    private double cpu;
-    private int displayInchs;
+    private String memoryRom;
+    private String systemMemory;
+    private String cpu;
+    private String displayInchs;
 
     public Laptop () {
 
     }
 
-    public Laptop(double batteryCapacity, String os, int memoryRom, int systemMemory, double cpu, int displayInchs) {
+    public Laptop(String batteryCapacity, String os, String memoryRom, String systemMemory, String cpu, String displayInchs) {
         this.batteryCapacity = batteryCapacity;
         this.os = os;
         this.memoryRom = memoryRom;
@@ -24,11 +24,11 @@ public class Laptop extends Appliance{
         this.displayInchs = displayInchs;
     }
 
-    public double getBatteryCapacity() {
+    public String getBatteryCapacity() {
         return batteryCapacity;
     }
 
-    public void setBatteryCapacity(float batteryCapacity) {
+    public void setBatteryCapacity(String batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
     }
 
@@ -40,35 +40,35 @@ public class Laptop extends Appliance{
         this.os = os;
     }
 
-    public int getMemoryRom() {
+    public String getMemoryRom() {
         return memoryRom;
     }
 
-    public void setMemoryRom(int memoryRom) {
+    public void setMemoryRom(String memoryRom) {
         this.memoryRom = memoryRom;
     }
 
-    public int getSystemMemory() {
+    public String getSystemMemory() {
         return systemMemory;
     }
 
-    public void setSystemMemory(int systemMemory) {
+    public void setSystemMemory(String systemMemory) {
         this.systemMemory = systemMemory;
     }
 
-    public double getCpu() {
+    public String getCpu() {
         return cpu;
     }
 
-    public void setCpu(float cpu) {
+    public void setCpu(String cpu) {
         this.cpu = cpu;
     }
 
-    public float getDisplayInchs() {
+    public String getDisplayInchs() {
         return displayInchs;
     }
 
-    public void setDisplayInchs(int displayInchs) {
+    public void setDisplayInchs(String displayInchs) {
         this.displayInchs = displayInchs;
     }
 

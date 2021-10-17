@@ -4,17 +4,17 @@ public class Oven extends Appliance {
 
     // you may add your own code here
 
-    private int powerConsumption;
-    private double weight;
-    private int capacity;
-    private double depth;
-    private double height;
-    private double width;
+    private String powerConsumption;
+    private String weight;
+    private String capacity;
+    private String depth;
+    private String height;
+    private String width;
 
     public Oven() {
     }
 
-    public Oven(int powerConsumption, double weight, int capacity, double depth, double height, double width) {
+    public Oven(String powerConsumption, String weight, String capacity, String depth, String height, String width) {
         this.powerConsumption = powerConsumption;
         this.weight = weight;
         this.capacity = capacity;
@@ -23,51 +23,51 @@ public class Oven extends Appliance {
         this.width = width;
     }
 
-    public int getPowerConsumption() {
+    public String getPowerConsumption() {
         return powerConsumption;
     }
 
-    public void setPowerConsumption(int powerConsumption) {
+    public void setPowerConsumption(String powerConsumption) {
         this.powerConsumption = powerConsumption;
     }
 
-    public double getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
-    public int getCapacity() {
+    public String getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
 
-    public double getDepth() {
+    public String getDepth() {
         return depth;
     }
 
-    public void setDepth(double depth) {
+    public void setDepth(String depth) {
         this.depth = depth;
     }
 
-    public double getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public double getWidth() {
+    public String getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(String width) {
         this.width = width;
     }
 
