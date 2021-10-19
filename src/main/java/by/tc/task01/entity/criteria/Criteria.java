@@ -19,7 +19,14 @@ public class Criteria {
 	public void add(String searchCriteria, Object value) {
 		criteria.put(searchCriteria, value);
 	}
-	
+
+//	public void get(String searchCriteria, Object value) {
+//		criteria.get(searchCriteria);
+//		criteria.get(value);
+//	}
+//
+//	public void save(String toString, String s) {
+//	}
 	// you may add your own code here
 
 }

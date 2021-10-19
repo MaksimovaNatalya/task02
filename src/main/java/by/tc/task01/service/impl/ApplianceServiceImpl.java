@@ -2,9 +2,9 @@ package by.tc.task01.service.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
 import by.tc.task01.dao.DAOFactory;
-import by.tc.task01.entity.Appliance;
-import by.tc.task01.entity.Laptop;
+import by.tc.task01.entity.*;
 import by.tc.task01.entity.criteria.Criteria;
+import by.tc.task01.entity.criteria.SearchCriteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.validation.Validator;
 
@@ -23,6 +23,11 @@ public class ApplianceServiceImpl implements ApplianceService{
 		ApplianceDAO applianceDAO = factory.getApplianceDAO();
 		
 		ArrayList<Laptop> laptops = applianceDAO.getLaptops();
+		ArrayList<Oven> ovens = applianceDAO.getOvens();
+		ArrayList<Refrigerator> refrigerators = applianceDAO.getRefrigerators();
+		ArrayList<Speakers> speakers = applianceDAO.getSpeakers();
+		ArrayList<TabletPC> tabletPCs = applianceDAO.getTabletPCs();
+		ArrayList<VacuumCleaner> vacuumCleaners = applianceDAO.getVacuumCleaners();
 
 //		String text = "macaca";
 //		Object smth = text;
@@ -33,7 +38,7 @@ public class ApplianceServiceImpl implements ApplianceService{
 		// you may add your own code here
 		//for (int i=0; i<laptops.size(); i++) {
 		for (Laptop laptop : laptops) {
-			if ("Linux".equals(laptop.getOs())) {
+			if ("3".equals(laptop.getBatteryCapacity())) {
 				return laptop;
 			}
 
