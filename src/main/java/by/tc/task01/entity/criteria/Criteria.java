@@ -2,31 +2,40 @@ package by.tc.task01.entity.criteria;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Criteria {
 
-	private String groupSearchName;
-	private Map<String, Object> criteria = new HashMap<String, Object>();
+    private String groupSearchName;
+    private Map<String, Object> criteria = new HashMap<String, Object>();
 
-	public Criteria(String groupSearchName) {
-		this.groupSearchName = groupSearchName;
-	}
-	
-	public String getGroupSearchName() {
-		return groupSearchName;
-	}
+    public String getGroupSearchName() {
+        return groupSearchName;
+    }
 
-	public void add(String searchCriteria, Object value) {
-		criteria.put(searchCriteria, value);
-	}
+    public Criteria(String groupSearchName) {
+        this.groupSearchName = groupSearchName;
+    }
 
-//	public void get(String searchCriteria, Object value) {
-//		criteria.get(searchCriteria);
-//		criteria.get(value);
-//	}
+    public Map<String, Object> getCriteria() {
+        return criteria;
+    }
+
+    public void add(String searchCriteria, Object value) {
+        criteria.put(searchCriteria, value);
+    }
+
+//    public Object getValue() {
+//
+//        return criteria.values();
+//    }
+
+    public Set entrySet() {
+      return   criteria.entrySet();
+    }
 //
 //	public void save(String toString, String s) {
 //	}
-	// you may add your own code here
+    // you may add your own code here
 
 }

@@ -8,8 +8,7 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.validation.Validator;
 
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.*;
 
 public class ApplianceServiceImpl implements ApplianceService{
 
@@ -29,22 +28,32 @@ public class ApplianceServiceImpl implements ApplianceService{
 		ArrayList<TabletPC> tabletPCs = applianceDAO.getTabletPCs();
 		ArrayList<VacuumCleaner> vacuumCleaners = applianceDAO.getVacuumCleaners();
 
-//		String text = "macaca";
-//		Object smth = text;
-//
-//		text = text.toUpperCase(Locale.ROOT);
-//		System.out.println(text);
 
 		// you may add your own code here
-		//for (int i=0; i<laptops.size(); i++) {
-		for (Laptop laptop : laptops) {
-			if ("3".equals(laptop.getBatteryCapacity())) {
-				return laptop;
-			}
 
+		//for (int i=0; i<laptops.size(); i++) {
+
+		Set s=criteria.entrySet();
+		Iterator itr=s.iterator();
+		while(itr.hasNext())
+		{
+			Map.Entry m=(Map.Entry)itr.next();
+			Object value =  m.getValue();
+
+			for (Laptop laptop : laptops) {
+
+				if (value.equals(laptop.getOs())) {
+					//if ("Linux".equals(laptop.getOs())) {
+					return laptop;
+				}
+
+			}
 		}
+
+
 		return null;
 	}
+
 
 }
 
