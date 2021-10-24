@@ -14,6 +14,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 
 public class Main {
@@ -38,48 +39,23 @@ public class Main {
         // Вывод информации
       //  DOMParser.getLaptops().forEach(System.out::println);
 
-		Appliance appliance;
+		List <Appliance> appliances;
 
 		ServiceFactory factory = ServiceFactory.getInstance();
 		ApplianceService service = factory.getApplianceService();
 
-        //////////////////////////////////////////////////////////////////
-        Criteria laptopCriteria = new Criteria(SearchCriteria.Laptop.class.getSimpleName());
-        laptopCriteria.add(SearchCriteria.Laptop.OS.toString(), "Linux");
-     //   laptopCriteria.save(SearchCriteria.Laptop.BATTERY_CAPACITY.toString(), "3");
+       Criteria laptopCriteria = new Criteria(SearchCriteria.Laptop.class.getSimpleName());
+        laptopCriteria.add(SearchCriteria.Laptop.OS.toString(), "Windows");
+      laptopCriteria.add(SearchCriteria.Laptop.DISPLAY_INCHS.toString(), "18");
+     //  laptopCriteria.save(SearchCriteria.Laptop.BATTERY_CAPACITY.toString(), "3");
 
-        appliance = service.find(laptopCriteria);
-        PrintApplianceInfo.print(appliance);
+        Criteria ovenCriteria = new Criteria(SearchCriteria.Oven.class.getSimpleName());
+        ovenCriteria.add(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), 1000);
 
-        //////////////////////////////////////////////////////////////////
+      appliances = service.find(laptopCriteria);
+        appliances = service.find(ovenCriteria);
+        PrintApplianceInfo.print(appliances);
 
-		Criteria criteriaOven = new Criteria(SearchCriteria.Oven.class.getSimpleName());//"Oven"
-		criteriaOven.add(SearchCriteria.Oven.CAPACITY.toString(), 3);
-
-		appliance = service.find(criteriaOven);
-
-	//	PrintApplianceInfo.print(appliance);
-
-		//////////////////////////////////////////////////////////////////
-
-		criteriaOven = new Criteria(SearchCriteria.Oven.class.getSimpleName());
-		criteriaOven.add(SearchCriteria.Oven.HEIGHT.toString(), 200);
-		criteriaOven.add(SearchCriteria.Oven.DEPTH.toString(), 300);
-
-		appliance = service.find(criteriaOven);
-
-	//	PrintApplianceInfo.print(appliance);
-
-        //////////////////////////////////////////////////////////////////
-
-		Criteria criteriaTabletPC = new Criteria(SearchCriteria.TabletPC.class.getSimpleName());
-		criteriaTabletPC.add(SearchCriteria.TabletPC.COLOR.toString(), "BLUE");
-		criteriaTabletPC.add(SearchCriteria.TabletPC.DISPLAY_INCHES.toString(), 14);
-		criteriaTabletPC.add(SearchCriteria.TabletPC.MEMORY_ROM.toString(), 4);
-
-		appliance = service.find(criteriaOven);// find(Object...obj)
-
-	//	PrintApplianceInfo.print(appliance);
 
     }
 }
