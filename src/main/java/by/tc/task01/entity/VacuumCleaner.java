@@ -1,5 +1,7 @@
 package by.tc.task01.entity;
 
+import java.util.Objects;
+
 public class VacuumCleaner extends Appliance{
     // you may add your own code here
     private int powerConsumption;
@@ -68,6 +70,21 @@ public class VacuumCleaner extends Appliance{
 
     public void setCleaningWidth(int cleaningWidth) {
         this.cleaningWidth = cleaningWidth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VacuumCleaner that = (VacuumCleaner) o;
+        return powerConsumption == that.powerConsumption && motorSpeedRegulation == that.motorSpeedRegulation &&
+                cleaningWidth == that.cleaningWidth && filterType.equals(that.filterType) &&
+                bagType.equals(that.bagType) && wandType.equals(that.wandType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(powerConsumption, filterType, bagType, wandType, motorSpeedRegulation, cleaningWidth);
     }
 
     @Override
