@@ -36,8 +36,6 @@ public class Main {
         InfoCollector.collectInformation(document, InfoCollector.TABLET_PC);
         InfoCollector.collectInformation(document, InfoCollector.VACUUM_CLEANER);
 
-        // Вывод информации
-      //  DOMParser.getLaptops().forEach(System.out::println);
 
 		List <Appliance> appliances;
 
@@ -47,7 +45,7 @@ public class Main {
        Criteria laptopCriteria = new Criteria(SearchCriteria.Laptop.class.getSimpleName());
         laptopCriteria.add(SearchCriteria.Laptop.OS.toString(), "Windows");
       laptopCriteria.add(SearchCriteria.Laptop.DISPLAY_INCHS.toString(), "18");
-     //  laptopCriteria.save(SearchCriteria.Laptop.BATTERY_CAPACITY.toString(), "3");
+
 
         Criteria ovenCriteria = new Criteria(SearchCriteria.Oven.class.getSimpleName());
         ovenCriteria.add(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), 1000);

@@ -4,6 +4,7 @@ import by.tc.task01.dao.ApplianceDAO;
 import by.tc.task01.dao.DAOFactory;
 import by.tc.task01.entity.*;
 import by.tc.task01.entity.criteria.Criteria;
+import by.tc.task01.entity.criteria.SearchCriteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.validation.Validator;
 
@@ -28,46 +29,39 @@ public class ApplianceServiceImpl implements ApplianceService {
         ArrayList<VacuumCleaner> vacuumCleaners = applianceDAO.getVacuumCleaners();
 
 
-        // you may add your own code here
-
-        //for (int i=0; i<laptops.size(); i++) {
-
-        Set s = criteria.entrySet();
-        Iterator itr = s.iterator();
+        Set entrySet = criteria.entrySet();
+        Iterator itr = entrySet.iterator();
         while (itr.hasNext()) {
-            Map.Entry m = (Map.Entry) itr.next();
-            String key = (String) m.getKey();
-            Object expectedValue = m.getValue();
+            Map.Entry mapEntry = (Map.Entry) itr.next();
+            String key = (String) mapEntry.getKey();
+            Object expectedValue = mapEntry.getValue();
 
             List<Appliance> matchingAppliances = new ArrayList<>();
 
-            if ("Laptop".equals(criteria.getGroupSearchName())) {
+            if (Laptop.class.getSimpleName().equals(criteria.getGroupSearchName())) {
 
                 for (Laptop laptop : laptops) {
 
-                    if ("OS".equals(key) && (expectedValue.equals(laptop.getOs()))) {
+                    if (SearchCriteria.Laptop.OS.toString().equals(key) && (expectedValue.equals(laptop.getOs()))) {
                         matchingAppliances.add(laptop);
-
-                    } else if ("DISPLAY_INCHS".equals(key) && (expectedValue.equals(laptop.getDisplayInchs()))) {
-                        matchingAppliances.add(laptop);
-
                     }
-
+                    else if (SearchCriteria.Laptop.DISPLAY_INCHS.toString().equals(key)
+                            && (expectedValue.equals(laptop.getDisplayInchs()))) {
+                        matchingAppliances.add(laptop);
+                    }
                 }
                 return matchingAppliances;
             }
-            if ("Oven".equals(criteria.getGroupSearchName())) {
 
+            if (Oven.class.getSimpleName().equals(criteria.getGroupSearchName())) {
                 for (Oven oven : ovens) {
-
-                    if ("POWER_CONSUMPTION".equals(key) && (expectedValue.equals(oven.getPowerConsumption()))) {
+                    if (SearchCriteria.Oven.POWER_CONSUMPTION.toString().equals(key) &&
+                            (expectedValue.equals(oven.getPowerConsumption()))) {
                         matchingAppliances.add(oven);
-
-                    } else if ("WEIGHT".equals(key) && (expectedValue.equals(oven.getWeight()))) {
-                        matchingAppliances.add(oven);
-
                     }
-
+                    else if (SearchCriteria.Oven.WEIGHT.toString().equals(key) && (expectedValue.equals(oven.getWeight()))) {
+                        matchingAppliances.add(oven);
+                    }
                 }
                 return matchingAppliances;
             }

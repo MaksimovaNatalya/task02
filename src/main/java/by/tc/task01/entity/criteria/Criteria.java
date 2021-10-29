@@ -1,5 +1,7 @@
 package by.tc.task01.entity.criteria;
 
+import by.tc.task01.entity.Laptop;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -25,17 +27,11 @@ public class Criteria {
         criteria.put(searchCriteria, value);
     }
 
-//    public Object getValue() {
-//
-//        return criteria.values();
-//    }
 
     public Set entrySet() {
       return   criteria.entrySet();
     }
-//
-//	public void save(String toString, String s) {
-//	}
-    // you may add your own code here
+
+
 
 }

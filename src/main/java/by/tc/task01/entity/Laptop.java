@@ -7,12 +7,12 @@ public class Laptop extends Appliance{
 
 
     private double batteryCapacity;
-
     private String os;
     private int memoryRom;
     private int systemMemory;
     private double cpu;
     private int displayInchs;
+
     public Laptop () {
 
     }
