@@ -11,11 +11,9 @@ public class VacuumCleaner extends Appliance{
     private int motorSpeedRegulation;
     private int cleaningWidth;
 
-    public VacuumCleaner(){
 
-    }
-
-    public VacuumCleaner(int powerConsumption, String filterType, String bagType, String wandType, int motorSpeedRegulation, int cleaningWidth) {
+    public VacuumCleaner(String id, int powerConsumption, String filterType, String bagType, String wandType, int motorSpeedRegulation, int cleaningWidth) {
+        super(id);
         this.powerConsumption = powerConsumption;
         this.filterType = filterType;
         this.bagType = bagType;
@@ -76,21 +74,21 @@ public class VacuumCleaner extends Appliance{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         VacuumCleaner that = (VacuumCleaner) o;
-        return powerConsumption == that.powerConsumption && motorSpeedRegulation == that.motorSpeedRegulation &&
-                cleaningWidth == that.cleaningWidth && filterType.equals(that.filterType) &&
-                bagType.equals(that.bagType) && wandType.equals(that.wandType);
+        return powerConsumption == that.powerConsumption && motorSpeedRegulation == that.motorSpeedRegulation && cleaningWidth == that.cleaningWidth && filterType.equals(that.filterType) && bagType.equals(that.bagType) && wandType.equals(that.wandType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(powerConsumption, filterType, bagType, wandType, motorSpeedRegulation, cleaningWidth);
+        return Objects.hash(super.hashCode(), powerConsumption, filterType, bagType, wandType, motorSpeedRegulation, cleaningWidth);
     }
 
     @Override
     public String toString() {
         return "VacuumCleaner{" +
-                "powerConsumption=" + powerConsumption +
+                "id='" + id + '\'' +
+                ", powerConsumption=" + powerConsumption +
                 ", filterType='" + filterType + '\'' +
                 ", bagType='" + bagType + '\'' +
                 ", wandType='" + wandType + '\'' +

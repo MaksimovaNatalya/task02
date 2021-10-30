@@ -10,11 +10,10 @@ public class TabletPC extends Appliance {
     private int flashMemoryCapacity;
     private String color;
 
-    public TabletPC() {
 
-    }
 
-    public TabletPC(double batteryCapacity, int displayInches, int memoryRom, int flashMemoryCapacity, String color) {
+    public TabletPC(String id, double batteryCapacity, int displayInches, int memoryRom, int flashMemoryCapacity, String color) {
+        super(id);
         this.batteryCapacity = batteryCapacity;
         this.displayInches = displayInches;
         this.memoryRom = memoryRom;
@@ -66,21 +65,21 @@ public class TabletPC extends Appliance {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         TabletPC tabletPC = (TabletPC) o;
-        return Double.compare(tabletPC.batteryCapacity, batteryCapacity) == 0 && displayInches == tabletPC.displayInches
-                && memoryRom == tabletPC.memoryRom && flashMemoryCapacity == tabletPC.flashMemoryCapacity &&
-                color.equals(tabletPC.color);
+        return Double.compare(tabletPC.batteryCapacity, batteryCapacity) == 0 && displayInches == tabletPC.displayInches && memoryRom == tabletPC.memoryRom && flashMemoryCapacity == tabletPC.flashMemoryCapacity && color.equals(tabletPC.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(batteryCapacity, displayInches, memoryRom, flashMemoryCapacity, color);
+        return Objects.hash(super.hashCode(), batteryCapacity, displayInches, memoryRom, flashMemoryCapacity, color);
     }
 
     @Override
     public String toString() {
         return "TabletPC{" +
-                "batteryCapacity=" + batteryCapacity +
+                "id='" + id + '\'' +
+                ", batteryCapacity=" + batteryCapacity +
                 ", displayInches=" + displayInches +
                 ", memoryRom=" + memoryRom +
                 ", flashMemoryCapacity=" + flashMemoryCapacity +

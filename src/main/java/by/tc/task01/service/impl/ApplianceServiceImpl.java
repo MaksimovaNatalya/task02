@@ -15,7 +15,7 @@ public class ApplianceServiceImpl implements ApplianceService {
     @Override
     public List<Appliance> find(Criteria criteria) {
         if (!Validator.criteriaValidator(criteria)) {
-            return null;
+            throw new RuntimeException("Invalid criteria");
         }
 
         DAOFactory factory = DAOFactory.getInstance();

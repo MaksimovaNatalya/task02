@@ -10,11 +10,9 @@ public class Speakers extends Appliance{
     private String frequencyRange;
     private int cordLength;
 
-    public Speakers () {
 
-    }
-
-    public Speakers(int powerConsumption, int numberOfSpeakers, String frequencyRange, int cordLength) {
+    public Speakers(String id, int powerConsumption, int numberOfSpeakers, String frequencyRange, int cordLength) {
+        super(id);
         this.powerConsumption = powerConsumption;
         this.numberOfSpeakers = numberOfSpeakers;
         this.frequencyRange = frequencyRange;
@@ -57,20 +55,21 @@ public class Speakers extends Appliance{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Speakers speakers = (Speakers) o;
-        return powerConsumption == speakers.powerConsumption && numberOfSpeakers == speakers.numberOfSpeakers &&
-                cordLength == speakers.cordLength && frequencyRange.equals(speakers.frequencyRange);
+        return powerConsumption == speakers.powerConsumption && numberOfSpeakers == speakers.numberOfSpeakers && cordLength == speakers.cordLength && frequencyRange.equals(speakers.frequencyRange);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(powerConsumption, numberOfSpeakers, frequencyRange, cordLength);
+        return Objects.hash(super.hashCode(), powerConsumption, numberOfSpeakers, frequencyRange, cordLength);
     }
 
     @Override
     public String toString() {
         return "Speakers{" +
-                "powerConsumption=" + powerConsumption +
+                "id='" + id + '\'' +
+                ", powerConsumption=" + powerConsumption +
                 ", numberOfSpeakers=" + numberOfSpeakers +
                 ", frequencyRange='" + frequencyRange + '\'' +
                 ", cordLength=" + cordLength +

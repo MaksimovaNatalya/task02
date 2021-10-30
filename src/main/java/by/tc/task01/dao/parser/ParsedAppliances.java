@@ -1,10 +1,10 @@
-package by.tc.task01.parser;
+package by.tc.task01.dao.parser;
 
 import by.tc.task01.entity.*;
 
 import java.util.ArrayList;
 
-public class DOMParser {
+public class ParsedAppliances {
 
     // collections for appliances information after parsing
     private static ArrayList<Laptop> laptops = new ArrayList<>();

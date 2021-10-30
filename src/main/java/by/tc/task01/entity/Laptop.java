@@ -13,11 +13,8 @@ public class Laptop extends Appliance{
     private double cpu;
     private int displayInchs;
 
-    public Laptop () {
-
-    }
-
-    public Laptop(double batteryCapacity, String os, int memoryRom, int systemMemory, double cpu, int displayInchs) {
+    public Laptop(String id, double batteryCapacity, String os, int memoryRom, int systemMemory, double cpu, int displayInchs) {
+        super(id);
         this.batteryCapacity = batteryCapacity;
         this.os = os;
         this.memoryRom = memoryRom;
@@ -78,21 +75,21 @@ public class Laptop extends Appliance{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Laptop laptop = (Laptop) o;
-        return Double.compare(laptop.batteryCapacity, batteryCapacity) == 0 && memoryRom == laptop.memoryRom &&
-                systemMemory == laptop.systemMemory && Double.compare(laptop.cpu, cpu) == 0 &&
-                displayInchs == laptop.displayInchs && Objects.equals(os, laptop.os);
+        return Double.compare(laptop.batteryCapacity, batteryCapacity) == 0 && memoryRom == laptop.memoryRom && systemMemory == laptop.systemMemory && Double.compare(laptop.cpu, cpu) == 0 && displayInchs == laptop.displayInchs && os.equals(laptop.os);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(batteryCapacity, os, memoryRom, systemMemory, cpu, displayInchs);
+        return Objects.hash(super.hashCode(), batteryCapacity, os, memoryRom, systemMemory, cpu, displayInchs);
     }
 
     @Override
     public String toString() {
         return "Laptop{" +
-                "batteryCapacity=" + batteryCapacity +
+                "id='" + id + '\'' +
+                ", batteryCapacity=" + batteryCapacity +
                 ", os='" + os + '\'' +
                 ", memoryRom=" + memoryRom +
                 ", systemMemory=" + systemMemory +

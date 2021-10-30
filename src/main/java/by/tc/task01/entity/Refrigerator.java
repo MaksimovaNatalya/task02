@@ -12,11 +12,10 @@ public class Refrigerator extends Appliance{
     private double height;
     private double width;
 
-    public Refrigerator () {
 
-    }
 
-    public Refrigerator(int powerConsumption, double weight, double freezerCapacity, double overallCapacity, double height, double width) {
+    public Refrigerator(String id, int powerConsumption, double weight, double freezerCapacity, double overallCapacity, double height, double width) {
+        super(id);
         this.powerConsumption = powerConsumption;
         this.weight = weight;
         this.freezerCapacity = freezerCapacity;
@@ -77,22 +76,21 @@ public class Refrigerator extends Appliance{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Refrigerator that = (Refrigerator) o;
-        return powerConsumption == that.powerConsumption && Double.compare(that.weight, weight) == 0 &&
-                Double.compare(that.freezerCapacity, freezerCapacity) == 0 &&
-                Double.compare(that.overallCapacity, overallCapacity) == 0 && Double.compare(that.height, height) == 0 &&
-                Double.compare(that.width, width) == 0;
+        return powerConsumption == that.powerConsumption && Double.compare(that.weight, weight) == 0 && Double.compare(that.freezerCapacity, freezerCapacity) == 0 && Double.compare(that.overallCapacity, overallCapacity) == 0 && Double.compare(that.height, height) == 0 && Double.compare(that.width, width) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(powerConsumption, weight, freezerCapacity, overallCapacity, height, width);
+        return Objects.hash(super.hashCode(), powerConsumption, weight, freezerCapacity, overallCapacity, height, width);
     }
 
     @Override
     public String toString() {
         return "Refrigerator{" +
-                "powerConsumption=" + powerConsumption +
+                "id='" + id + '\'' +
+                ", powerConsumption=" + powerConsumption +
                 ", weight=" + weight +
                 ", freezerCapacity=" + freezerCapacity +
                 ", overallCapacity=" + overallCapacity +

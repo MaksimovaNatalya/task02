@@ -3,7 +3,7 @@
         targetNamespace="http://www.epam.tc.com/catalogue"
         xmlns:tns="http://www.epam.tc.com/catalogue">
 
- <element name="catalogue">
+    <element name="catalogue">
         <complexType>
             <sequence>
                 <element name="Oven" type="tns:Oven" minOccurs="0" maxOccurs="unbounded"/>
@@ -12,59 +12,65 @@
                 <element name="VacuumCleaner" type="tns:VacuumCleaner" minOccurs="0" maxOccurs="unbounded"/>
                 <element name="TabletPC" type="tns:TabletPC" minOccurs="0" maxOccurs="unbounded"/>
                 <element name="Speakers" type="tns:Speakers" minOccurs="0" maxOccurs="unbounded"/>
-                </sequence>
+            </sequence>
         </complexType>
- </element>
+    </element>
 
-         <complexType name="Oven">
-                    <attribute name="POWER_CONSUMPTION" type="int" use="required"/>
-                    <attribute name="WEIGHT" type="double" use="required"/>
-                    <attribute name="CAPACITY" type="int" use="required"/>
-                    <attribute name="DEPTH" type="double" use="required"/>
-                    <attribute name="HEIGHT" type="double" use="required"/>
-                    <attribute name="WIDTH" type="double" use="required"/>
-         </complexType>
+    <complexType name="Oven">
+        <attribute name="ID" type="string" use="required"/>
+        <attribute name="POWER_CONSUMPTION" type="int" use="required"/>
+        <attribute name="WEIGHT" type="double" use="required"/>
+        <attribute name="CAPACITY" type="int" use="required"/>
+        <attribute name="DEPTH" type="double" use="required"/>
+        <attribute name="HEIGHT" type="double" use="required"/>
+        <attribute name="WIDTH" type="double" use="required"/>
+    </complexType>
 
-         <complexType name="Laptop">
-                    <attribute name="BATTERY_CAPACITY" type="double" use="required"/>
-                    <attribute name="OS" type="string" use="required"/>
-                    <attribute name="MEMORY_ROM" type="int" use="required"/>
-                    <attribute name="SYSTEM_MEMORY" type="int" use="required"/>
-                    <attribute name="CPU" type="double" use="required"/>
-                    <attribute name="DISPLAY_INCHS" type="int" use="required"/>
-         </complexType>
+    <complexType name="Laptop">
+        <attribute name="ID" type="string" use="required"/>
+        <attribute name="BATTERY_CAPACITY" type="double" use="required"/>
+        <attribute name="OS" type="string" use="required"/>
+        <attribute name="MEMORY_ROM" type="int" use="required"/>
+        <attribute name="SYSTEM_MEMORY" type="int" use="required"/>
+        <attribute name="CPU" type="double" use="required"/>
+        <attribute name="DISPLAY_INCHS" type="int" use="required"/>
+    </complexType>
 
-         <complexType name="Refrigerator">
-                    <attribute name="POWER_CONSUMPTION" type="int" use="required"/>
-                    <attribute name="WEIGHT" type="double" use="required"/>
-                    <attribute name="FREEZER_CAPACITY" type="double" use="required"/>
-                    <attribute name="OVERALL_CAPACITY" type="double" use="required"/>
-                    <attribute name="HEIGHT" type="double" use="required"/>
-                    <attribute name="WIDTH" type="double" use="required"/>
-         </complexType>
+    <complexType name="Refrigerator">
+        <attribute name="ID" type="string" use="required"/>
+        <attribute name="POWER_CONSUMPTION" type="int" use="required"/>
+        <attribute name="WEIGHT" type="double" use="required"/>
+        <attribute name="FREEZER_CAPACITY" type="double" use="required"/>
+        <attribute name="OVERALL_CAPACITY" type="double" use="required"/>
+        <attribute name="HEIGHT" type="double" use="required"/>
+        <attribute name="WIDTH" type="double" use="required"/>
+    </complexType>
 
-         <complexType name="VacuumCleaner">
-                    <attribute name="POWER_CONSUMPTION" type="int" use="required"/>
-                    <attribute name="FILTER_TYPE" type="string" use="required"/>
-                    <attribute name="BAG_TYPE" type="string" use="required"/>
-                    <attribute name="WAND_TYPE" type="string" use="required"/>
-                    <attribute name="MOTOR_SPEED_REGULATION" type="int" use="required"/>
-                    <attribute name="CLEANING_WIDTH" type="int" use="required"/>
-         </complexType>
+    <complexType name="VacuumCleaner">
+        <attribute name="ID" type="string" use="required"/>
+        <attribute name="POWER_CONSUMPTION" type="int" use="required"/>
+        <attribute name="FILTER_TYPE" type="string" use="required"/>
+        <attribute name="BAG_TYPE" type="string" use="required"/>
+        <attribute name="WAND_TYPE" type="string" use="required"/>
+        <attribute name="MOTOR_SPEED_REGULATION" type="int" use="required"/>
+        <attribute name="CLEANING_WIDTH" type="int" use="required"/>
+    </complexType>
 
-         <complexType name="TabletPC">
-                    <attribute name="BATTERY_CAPACITY" type="double" use="required"/>
-                    <attribute name="DISPLAY_INCHES" type="int" use="required"/>
-                    <attribute name="MEMORY_ROM" type="int" use="required"/>
-                    <attribute name="FLASH_MEMORY_CAPACITY" type="int" use="required"/>
-                    <attribute name="COLOR" type="string" use="required"/>                 
-         </complexType>
+    <complexType name="TabletPC">
+        <attribute name="ID" type="string" use="required"/>
+        <attribute name="BATTERY_CAPACITY" type="double" use="required"/>
+        <attribute name="DISPLAY_INCHES" type="int" use="required"/>
+        <attribute name="MEMORY_ROM" type="int" use="required"/>
+        <attribute name="FLASH_MEMORY_CAPACITY" type="int" use="required"/>
+        <attribute name="COLOR" type="string" use="required"/>
+    </complexType>
 
-         <complexType name="Speakers">
-                    <attribute name="POWER_CONSUMPTION" type="int" use="required"/>
-                    <attribute name="NUMBER_OF_SPEAKERS" type="int" use="required"/>
-                    <attribute name="FREQUENCY_RANGE" type="string" use="required"/>
-                    <attribute name="CORD_LENGTH" type="int" use="required"/>
-         </complexType>
+    <complexType name="Speakers">
+        <attribute name="ID" type="string" use="required"/>
+        <attribute name="POWER_CONSUMPTION" type="int" use="required"/>
+        <attribute name="NUMBER_OF_SPEAKERS" type="int" use="required"/>
+        <attribute name="FREQUENCY_RANGE" type="string" use="required"/>
+        <attribute name="CORD_LENGTH" type="int" use="required"/>
+    </complexType>
 
 </schema>

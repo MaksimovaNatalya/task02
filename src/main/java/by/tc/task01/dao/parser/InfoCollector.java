@@ -1,4 +1,4 @@
-package by.tc.task01.parser;
+package by.tc.task01.dao.parser;
 
 import by.tc.task01.entity.*;
 import org.w3c.dom.Document;
@@ -13,6 +13,8 @@ public class InfoCollector {
     public static final String TABLET_PC = "TabletPC";
     public static final String VACUUM_CLEANER = "VacuumCleaner";
 
+
+
     public static void collectInformation(Document document, final String element) {
 
         // getting all elements by tag name
@@ -25,17 +27,19 @@ public class InfoCollector {
             // getting values of the attributes
             switch (element) {
                 case LAPTOP: {
+                    String id = attributes.getNamedItem("ID").getNodeValue();
                     double batteryCapacity = Double.parseDouble(attributes.getNamedItem("BATTERY_CAPACITY").getNodeValue());
                     String os = attributes.getNamedItem("OS").getNodeValue();
                     int memoryRom = Integer.parseInt(attributes.getNamedItem("MEMORY_ROM").getNodeValue());
                     int systemMemory = Integer.parseInt(attributes.getNamedItem("SYSTEM_MEMORY").getNodeValue());
                     double cpu = Double.parseDouble(attributes.getNamedItem("CPU").getNodeValue());
                     int displayInchs = Integer.parseInt(attributes.getNamedItem("DISPLAY_INCHS").getNodeValue());
-                // adding attributes to List
-                    DOMParser.getLaptops().add(new Laptop(batteryCapacity, os, memoryRom, systemMemory, cpu, displayInchs));
+                    // adding attributes to List
+                    ParsedAppliances.getLaptops().add(new Laptop(id, batteryCapacity, os, memoryRom, systemMemory, cpu, displayInchs));
                 }
                 break;
                 case OVEN: {
+                    String id = attributes.getNamedItem("ID").getNodeValue();
                     int powerConsumption = Integer.parseInt(attributes.getNamedItem("POWER_CONSUMPTION").getNodeValue());
                     double weight = Double.parseDouble(attributes.getNamedItem("WEIGHT").getNodeValue());
                     int capacity = Integer.parseInt(attributes.getNamedItem("CAPACITY").getNodeValue());
@@ -43,10 +47,11 @@ public class InfoCollector {
                     double height = Double.parseDouble(attributes.getNamedItem("HEIGHT").getNodeValue());
                     double width = Double.parseDouble(attributes.getNamedItem("WIDTH").getNodeValue());
 
-                    DOMParser.getOvens().add(new Oven(powerConsumption, weight, capacity, depth, height, width));
+                    ParsedAppliances.getOvens().add(new Oven(id, powerConsumption, weight, capacity, depth, height, width));
                 }
                 break;
                 case REFRIGERATOR: {
+                    String id = attributes.getNamedItem("ID").getNodeValue();
                     int powerConsumption = Integer.parseInt(attributes.getNamedItem("POWER_CONSUMPTION").getNodeValue());
                     double weight = Double.parseDouble(attributes.getNamedItem("WEIGHT").getNodeValue());
                     double freezerCapacity = Double.parseDouble(attributes.getNamedItem("FREEZER_CAPACITY").getNodeValue());
@@ -54,29 +59,32 @@ public class InfoCollector {
                     double height = Double.parseDouble(attributes.getNamedItem("HEIGHT").getNodeValue());
                     double width = Double.parseDouble(attributes.getNamedItem("WIDTH").getNodeValue());
 
-                    DOMParser.getRefrigerators().add(new Refrigerator(powerConsumption, weight, freezerCapacity, overallCapacity, height, width));
+                    ParsedAppliances.getRefrigerators().add(new Refrigerator(id, powerConsumption, weight, freezerCapacity, overallCapacity, height, width));
                 }
                 break;
                 case SPEAKERS: {
+                    String id = attributes.getNamedItem("ID").getNodeValue();
                     int powerConsumption = Integer.parseInt(attributes.getNamedItem("POWER_CONSUMPTION").getNodeValue());
                     int numberOfSpeakers = Integer.parseInt(attributes.getNamedItem("NUMBER_OF_SPEAKERS").getNodeValue());
                     String frequencyRange = attributes.getNamedItem("FREQUENCY_RANGE").getNodeValue();
                     int cordLength = Integer.parseInt(attributes.getNamedItem("CORD_LENGTH").getNodeValue());
 
-                    DOMParser.getSpeakers().add(new Speakers(powerConsumption, numberOfSpeakers, frequencyRange, cordLength));
+                    ParsedAppliances.getSpeakers().add(new Speakers(id, powerConsumption, numberOfSpeakers, frequencyRange, cordLength));
                 }
                 break;
                 case TABLET_PC: {
+                    String id = attributes.getNamedItem("ID").getNodeValue();
                     double batteryCapacity = Double.parseDouble(attributes.getNamedItem("BATTERY_CAPACITY").getNodeValue());
                     int displayInches = Integer.parseInt(attributes.getNamedItem("DISPLAY_INCHES").getNodeValue());
                     int memoryRom = Integer.parseInt(attributes.getNamedItem("MEMORY_ROM").getNodeValue());
                     int flashMemoryCapacity = Integer.parseInt(attributes.getNamedItem("FLASH_MEMORY_CAPACITY").getNodeValue());
                     String color = attributes.getNamedItem("COLOR").getNodeValue();
 
-                    DOMParser.getTabletPCS().add(new TabletPC(batteryCapacity, displayInches, memoryRom, flashMemoryCapacity, color));
+                    ParsedAppliances.getTabletPCS().add(new TabletPC(id, batteryCapacity, displayInches, memoryRom, flashMemoryCapacity, color));
                 }
                 break;
                 case VACUUM_CLEANER: {
+                    String id = attributes.getNamedItem("ID").getNodeValue();
                     int powerConsumption = Integer.parseInt(attributes.getNamedItem("POWER_CONSUMPTION").getNodeValue());
                     String filterType = attributes.getNamedItem("FILTER_TYPE").getNodeValue();
                     String bagType = attributes.getNamedItem("BAG_TYPE").getNodeValue();
@@ -84,7 +92,7 @@ public class InfoCollector {
                     int motorSpeedRegulation = Integer.parseInt(attributes.getNamedItem("MOTOR_SPEED_REGULATION").getNodeValue());
                     int cleaningWidth = Integer.parseInt(attributes.getNamedItem("CLEANING_WIDTH").getNodeValue());
 
-                    DOMParser.getVacuumCleaners().add(new VacuumCleaner(powerConsumption, filterType, bagType, wandType, motorSpeedRegulation, cleaningWidth));
+                    ParsedAppliances.getVacuumCleaners().add(new VacuumCleaner(id, powerConsumption, filterType, bagType, wandType, motorSpeedRegulation, cleaningWidth));
                 }
                 break;
             }

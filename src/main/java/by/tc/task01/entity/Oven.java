@@ -13,10 +13,9 @@ public class Oven extends Appliance {
     private double height;
     private double width;
 
-    public Oven() {
-    }
 
-    public Oven(int powerConsumption, double weight, int capacity, double depth, double height, double width) {
+    public Oven(String id, int powerConsumption, double weight, int capacity, double depth, double height, double width) {
+        super(id);
         this.powerConsumption = powerConsumption;
         this.weight = weight;
         this.capacity = capacity;
@@ -77,21 +76,21 @@ public class Oven extends Appliance {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Oven oven = (Oven) o;
-        return powerConsumption == oven.powerConsumption && Double.compare(oven.weight, weight) == 0 &&
-                capacity == oven.capacity && Double.compare(oven.depth, depth) == 0 &&
-                Double.compare(oven.height, height) == 0 && Double.compare(oven.width, width) == 0;
+        return powerConsumption == oven.powerConsumption && Double.compare(oven.weight, weight) == 0 && capacity == oven.capacity && Double.compare(oven.depth, depth) == 0 && Double.compare(oven.height, height) == 0 && Double.compare(oven.width, width) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(powerConsumption, weight, capacity, depth, height, width);
+        return Objects.hash(super.hashCode(), powerConsumption, weight, capacity, depth, height, width);
     }
 
     @Override
     public String toString() {
         return "Oven{" +
-                "powerConsumption=" + powerConsumption +
+                "id='" + id + '\'' +
+                ", powerConsumption=" + powerConsumption +
                 ", weight=" + weight +
                 ", capacity=" + capacity +
                 ", depth=" + depth +
