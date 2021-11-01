@@ -1,4 +1,4 @@
-package by.tc.task01.dao.parser;
+package by.tc.task01.dao.fromxmlparser;
 
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;

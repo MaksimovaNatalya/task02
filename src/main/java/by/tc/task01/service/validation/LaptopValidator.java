@@ -26,13 +26,13 @@ public class LaptopValidator {
             int memoryRom = (int) laptopParameters.get(MEMORY_ROM.toString());
             return memoryRom >= 4000 && memoryRom <= 8000;
         } else if (laptopParameters.containsKey(SYSTEM_MEMORY.toString())) {
-            int systemMemory = (int) laptopParameters.get(SYSTEM_MEMORY.toString());
+            int systemMemory = Integer.parseInt(String.valueOf(laptopParameters.get(SYSTEM_MEMORY.toString())));
             return systemMemory >= 1000 && systemMemory <= 1500;
         } else if (laptopParameters.containsKey(CPU.toString())) {
             double cpu = (double) laptopParameters.get(CPU.toString());
             return cpu >= 1 && cpu <= 3.5;
         } else if (laptopParameters.containsKey(DISPLAY_INCHS.toString())) {
-            int displayInches = (int) laptopParameters.get(DISPLAY_INCHS.toString());
+            int displayInches = Integer.parseInt(String.valueOf(laptopParameters.get(DISPLAY_INCHS.toString())));
             return displayInches >= 15 && displayInches <= 24;
         } else {
             return false;

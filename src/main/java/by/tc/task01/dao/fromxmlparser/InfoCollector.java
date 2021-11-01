@@ -1,4 +1,4 @@
-package by.tc.task01.dao.parser;
+package by.tc.task01.dao.fromxmlparser;
 
 import by.tc.task01.entity.*;
 import org.w3c.dom.Document;

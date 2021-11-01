@@ -2,7 +2,7 @@ package by.tc.task01.dao.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
 import by.tc.task01.entity.*;
-import by.tc.task01.dao.parser.ParsedAppliances;
+import by.tc.task01.dao.fromxmlparser.ParsedAppliances;
 
 import java.util.ArrayList;
 

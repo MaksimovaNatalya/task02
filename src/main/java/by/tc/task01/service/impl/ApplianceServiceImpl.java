@@ -44,9 +44,11 @@ public class ApplianceServiceImpl implements ApplianceService {
 
                     if (SearchCriteria.Laptop.OS.toString().equals(key) && (expectedValue.equals(laptop.getOs()))) {
                         matchingAppliances.add(laptop);
-                    }
-                    else if (SearchCriteria.Laptop.DISPLAY_INCHS.toString().equals(key)
-                            && (expectedValue.equals(laptop.getDisplayInchs()))) {
+                    } else if (SearchCriteria.Laptop.DISPLAY_INCHS.toString().equals(key)
+                            && (expectedValue.equals(String.valueOf(laptop.getDisplayInchs())))) {
+                        matchingAppliances.add(laptop);
+                    } else if (SearchCriteria.Laptop.SYSTEM_MEMORY.toString().equals(key)
+                            && (expectedValue.equals(String.valueOf(laptop.getSystemMemory())))) {
                         matchingAppliances.add(laptop);
                     }
                 }
@@ -58,8 +60,7 @@ public class ApplianceServiceImpl implements ApplianceService {
                     if (SearchCriteria.Oven.POWER_CONSUMPTION.toString().equals(key) &&
                             (expectedValue.equals(oven.getPowerConsumption()))) {
                         matchingAppliances.add(oven);
-                    }
-                    else if (SearchCriteria.Oven.WEIGHT.toString().equals(key) && (expectedValue.equals(oven.getWeight()))) {
+                    } else if (SearchCriteria.Oven.WEIGHT.toString().equals(key) && (expectedValue.equals(oven.getWeight()))) {
                         matchingAppliances.add(oven);
                     }
                 }
