@@ -1,8 +1,7 @@
-package by.tc.task01.dao.toxmlparser;
+package by.tc.task01.dao.toxmlparsing;
 
 import by.tc.task01.entity.Appliance;
-import by.tc.task01.entity.Refrigerator;
-import by.tc.task01.entity.Speakers;
+import by.tc.task01.entity.Oven;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -19,40 +18,48 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class SpeakersSaver {
-    public static void saveAsXML(List<Appliance> appliances) throws ParserConfigurationException, TransformerConfigurationException {
+public class OvenSaver {
+
+
+    public static void saveAsXML(List<Appliance> appliances) throws TransformerConfigurationException, ParserConfigurationException {
         final String FILE_PATH = "./result.xml";
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.newDocument();
 
-        Element root = document.createElement("SPEAKERS");
+        Element root = document.createElement("OVEN");
         document.appendChild(root);
 
 
         for (Appliance appliance : appliances) {
-            if (appliance instanceof Speakers) {
+            if (appliance instanceof Oven) {
                 Element parameters = document.createElement("PARAMETERS");
                 root.appendChild(parameters);
 
                 Element id = document.createElement("ID");
                 Element powerConsumption = document.createElement("POWER_CONSUMPTION");
-                Element numberOfSpeakers = document.createElement("NUMBER_OF_SPEAKERS");
-                Element frequencyRange = document.createElement("FREQUENCY_RANGE");
-                Element cordLength = document.createElement("CORD_LENGTH");
+                Element weight = document.createElement("WEIGHT");
+                Element capacity = document.createElement("CAPACITY");
+                Element depth = document.createElement("DEPTH");
+                Element height = document.createElement("HEIGHT");
+                Element width = document.createElement("WIDTH");
 
                 id.setTextContent(appliance.getId());
-                powerConsumption.setTextContent(String.valueOf(((Speakers) appliance).getPowerConsumption()));
-                numberOfSpeakers.setTextContent(String.valueOf(((Speakers) appliance).getNumberOfSpeakers()));
-                frequencyRange.setTextContent(String.valueOf(((Speakers) appliance).getFrequencyRange()));
-                cordLength.setTextContent(String.valueOf(((Speakers) appliance).getCordLength()));
+                powerConsumption.setTextContent(String.valueOf(((Oven) appliance).getPowerConsumption()));
+                weight.setTextContent(String.valueOf(((Oven) appliance).getWeight()));
+                capacity.setTextContent(String.valueOf(((Oven) appliance).getCapacity()));
+                depth.setTextContent(String.valueOf(((Oven) appliance).getDepth()));
+                height.setTextContent(String.valueOf(((Oven) appliance).getHeight()));
+                width.setTextContent(String.valueOf(((Oven) appliance).getWidth()));
 
                 parameters.appendChild(id);
                 parameters.appendChild(powerConsumption);
-                parameters.appendChild(numberOfSpeakers);
-                parameters.appendChild(frequencyRange);
-                parameters.appendChild(cordLength);
+                parameters.appendChild(weight);
+                parameters.appendChild(capacity);
+                parameters.appendChild(depth);
+                parameters.appendChild(height);
+                parameters.appendChild(width);
             }
         }
 
@@ -66,4 +73,6 @@ public class SpeakersSaver {
             throw new RuntimeException("Exception in writing the file");
         }
     }
+
+
 }

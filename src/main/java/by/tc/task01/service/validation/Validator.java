@@ -2,7 +2,7 @@ package by.tc.task01.service.validation;
 
 import by.tc.task01.entity.criteria.Criteria;
 
-import static by.tc.task01.dao.fromxmlparser.DomParser.*;
+import static by.tc.task01.dao.fromxmlparsing.DomParser.*;
 
 public class Validator {
 

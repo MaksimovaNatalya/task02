@@ -1,17 +1,19 @@
-package by.tc.task01.dao.fromxmlparser;
+package by.tc.task01.dao.fromxmlparsing;
 
-import by.tc.task01.entity.Refrigerator;
+import by.tc.task01.entity.Oven;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
-public class RefrigeratorInfoCollector {
-    public static void collectRefrigeratorInformation(Document document, final String element) {
+public class OvenInfoCollector {
+
+
+    public static void collectOvenInformation(Document document, final String element) {
 
         // getting all elements by tag name
         NodeList elements = document.getElementsByTagName(element);
 
-
+        // iteration through all found elements
         for (int i = 0; i < elements.getLength(); i++) {
             // getting all attributes of the element
             NamedNodeMap attributes = elements.item(i).getAttributes();
@@ -19,13 +21,12 @@ public class RefrigeratorInfoCollector {
             String id = attributes.getNamedItem("ID").getNodeValue();
             int powerConsumption = Integer.parseInt(attributes.getNamedItem("POWER_CONSUMPTION").getNodeValue());
             double weight = Double.parseDouble(attributes.getNamedItem("WEIGHT").getNodeValue());
-            double freezerCapacity = Double.parseDouble(attributes.getNamedItem("FREEZER_CAPACITY").getNodeValue());
-            double overallCapacity = Double.parseDouble(attributes.getNamedItem("OVERALL_CAPACITY").getNodeValue());
+            int capacity = Integer.parseInt(attributes.getNamedItem("CAPACITY").getNodeValue());
+            double depth = Double.parseDouble(attributes.getNamedItem("DEPTH").getNodeValue());
             double height = Double.parseDouble(attributes.getNamedItem("HEIGHT").getNodeValue());
             double width = Double.parseDouble(attributes.getNamedItem("WIDTH").getNodeValue());
 
-            ParsedAppliances.getRefrigerators().add(new Refrigerator(id, powerConsumption, weight, freezerCapacity,
-                    overallCapacity, height, width));
+            ParsedAppliances.getOvens().add(new Oven(id, powerConsumption, weight, capacity, depth, height, width));
         }
     }
 }

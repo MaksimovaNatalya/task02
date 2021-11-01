@@ -1,4 +1,4 @@
-package by.tc.task01.dao.toxmlparser;
+package by.tc.task01.dao.toxmlparsing;
 
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.Refrigerator;

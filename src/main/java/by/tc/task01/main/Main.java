@@ -1,7 +1,7 @@
 package by.tc.task01.main;
 
-import by.tc.task01.dao.fromxmlparser.DomParser;
-import by.tc.task01.dao.toxmlparser.ApplianceChooser;
+import by.tc.task01.dao.fromxmlparsing.DomParser;
+import by.tc.task01.dao.toxmlparsing.ApplianceChooser;
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.entity.criteria.SearchCriteria;
@@ -31,15 +31,15 @@ public class Main {
         Criteria laptopCriteria = new Criteria(SearchCriteria.Laptop.class.getSimpleName());
         laptopCriteria.add(SearchCriteria.Laptop.OS.toString(), "Windows");
         laptopCriteria.add(SearchCriteria.Laptop.DISPLAY_INCHS.toString(), "18");
-        laptopCriteria.add(SearchCriteria.Laptop.SYSTEM_MEMORY.toString(), "1500");
+  //      laptopCriteria.add(SearchCriteria.Laptop.SYSTEM_MEMORY.toString(), "1500");
 
-  //      appliances = service.find(laptopCriteria);
+        appliances = service.find(laptopCriteria);
 
         //oven criteria
         Criteria ovenCriteria = new Criteria(SearchCriteria.Oven.class.getSimpleName());
         ovenCriteria.add(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), 1000);
 
-        appliances = service.find(ovenCriteria);
+   //     appliances = service.find(ovenCriteria);
 
         //refrigerator criteria
         Criteria refrigeratorCriteria = new Criteria(SearchCriteria.Refrigerator.class.getSimpleName());

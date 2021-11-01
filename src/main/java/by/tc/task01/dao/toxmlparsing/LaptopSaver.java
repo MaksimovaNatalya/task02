@@ -1,7 +1,7 @@
-package by.tc.task01.dao.toxmlparser;
+package by.tc.task01.dao.toxmlparsing;
 
 import by.tc.task01.entity.Appliance;
-import by.tc.task01.entity.Oven;
+import by.tc.task01.entity.Laptop;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -18,48 +18,46 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class OvenSaver {
-
-
-    public static void saveAsXML(List<Appliance> appliances) throws TransformerConfigurationException, ParserConfigurationException {
+public class LaptopSaver {
+    public static void saveAsXML(List<Appliance> appliances) throws ParserConfigurationException, TransformerConfigurationException {
         final String FILE_PATH = "./result.xml";
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.newDocument();
 
-        Element root = document.createElement("OVEN");
+        Element root = document.createElement("LAPTOP");
         document.appendChild(root);
 
-
         for (Appliance appliance : appliances) {
-            if (appliance instanceof Oven) {
+            if (appliance instanceof Laptop) {
                 Element parameters = document.createElement("PARAMETERS");
                 root.appendChild(parameters);
 
                 Element id = document.createElement("ID");
-                Element powerConsumption = document.createElement("POWER_CONSUMPTION");
-                Element weight = document.createElement("WEIGHT");
-                Element capacity = document.createElement("CAPACITY");
-                Element depth = document.createElement("DEPTH");
-                Element height = document.createElement("HEIGHT");
-                Element width = document.createElement("WIDTH");
+                Element batteryCapacity = document.createElement("BATTERY_CAPACITY");
+                Element os = document.createElement("OS");
+                Element memoryRom = document.createElement("MEMORY_ROM");
+                Element systemMemory = document.createElement("SYSTEM_MEMORY");
+                Element cpu = document.createElement("CPU");
+                Element displayInches = document.createElement("DISPLAY_INCHES");
 
                 id.setTextContent(appliance.getId());
-                powerConsumption.setTextContent(String.valueOf(((Oven) appliance).getPowerConsumption()));
-                weight.setTextContent(String.valueOf(((Oven) appliance).getWeight()));
-                capacity.setTextContent(String.valueOf(((Oven) appliance).getCapacity()));
-                depth.setTextContent(String.valueOf(((Oven) appliance).getDepth()));
-                height.setTextContent(String.valueOf(((Oven) appliance).getHeight()));
-                width.setTextContent(String.valueOf(((Oven) appliance).getWidth()));
+                batteryCapacity.setTextContent(String.valueOf(((Laptop) appliance).getBatteryCapacity()));
+                os.setTextContent(((Laptop) appliance).getOs());
+                memoryRom.setTextContent(String.valueOf(((Laptop) appliance).getMemoryRom()));
+                systemMemory.setTextContent(String.valueOf(((Laptop) appliance).getSystemMemory()));
+                cpu.setTextContent(String.valueOf(((Laptop) appliance).getCpu()));
+                displayInches.setTextContent(String.valueOf(((Laptop) appliance).getDisplayInchs()));
+
 
                 parameters.appendChild(id);
-                parameters.appendChild(powerConsumption);
-                parameters.appendChild(weight);
-                parameters.appendChild(capacity);
-                parameters.appendChild(depth);
-                parameters.appendChild(height);
-                parameters.appendChild(width);
+                parameters.appendChild(batteryCapacity);
+                parameters.appendChild(os);
+                parameters.appendChild(memoryRom);
+                parameters.appendChild(systemMemory);
+                parameters.appendChild(cpu);
+                parameters.appendChild(displayInches);
             }
         }
 
@@ -73,6 +71,4 @@ public class OvenSaver {
             throw new RuntimeException("Exception in writing the file");
         }
     }
-
-
 }

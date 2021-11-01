@@ -1,7 +1,7 @@
-package by.tc.task01.dao.toxmlparser;
+package by.tc.task01.dao.toxmlparsing;
 
 import by.tc.task01.entity.Appliance;
-import by.tc.task01.entity.Laptop;
+import by.tc.task01.entity.TabletPC;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -16,10 +16,9 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class LaptopSaver {
+public class TabletPcSaver {
     public static void saveAsXML(List<Appliance> appliances) throws ParserConfigurationException, TransformerConfigurationException {
         final String FILE_PATH = "./result.xml";
 
@@ -27,38 +26,35 @@ public class LaptopSaver {
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.newDocument();
 
-        Element root = document.createElement("LAPTOP");
+        Element root = document.createElement("TABLET_PC");
         document.appendChild(root);
 
+
         for (Appliance appliance : appliances) {
-            if (appliance instanceof Laptop) {
+            if (appliance instanceof TabletPC) {
                 Element parameters = document.createElement("PARAMETERS");
                 root.appendChild(parameters);
 
                 Element id = document.createElement("ID");
                 Element batteryCapacity = document.createElement("BATTERY_CAPACITY");
-                Element os = document.createElement("OS");
-                Element memoryRom = document.createElement("MEMORY_ROM");
-                Element systemMemory = document.createElement("SYSTEM_MEMORY");
-                Element cpu = document.createElement("CPU");
                 Element displayInches = document.createElement("DISPLAY_INCHES");
+                Element memoryRom = document.createElement("MEMORY_ROM");
+                Element flashMemoryCapacity = document.createElement("FLASH_MEMORY_CAPACITY");
+                Element color = document.createElement("COLOR");
 
                 id.setTextContent(appliance.getId());
-                batteryCapacity.setTextContent(String.valueOf(((Laptop) appliance).getBatteryCapacity()));
-                os.setTextContent(((Laptop) appliance).getOs());
-                memoryRom.setTextContent(String.valueOf(((Laptop) appliance).getMemoryRom()));
-                systemMemory.setTextContent(String.valueOf(((Laptop) appliance).getSystemMemory()));
-                cpu.setTextContent(String.valueOf(((Laptop) appliance).getCpu()));
-                displayInches.setTextContent(String.valueOf(((Laptop) appliance).getDisplayInchs()));
-
+                batteryCapacity.setTextContent(String.valueOf(((TabletPC) appliance).getBatteryCapacity()));
+                displayInches.setTextContent(String.valueOf(((TabletPC) appliance).getDisplayInches()));
+                memoryRom.setTextContent(String.valueOf(((TabletPC) appliance).getMemoryRom()));
+                flashMemoryCapacity.setTextContent(String.valueOf(((TabletPC) appliance).getFlashMemoryCapacity()));
+                color.setTextContent(String.valueOf(((TabletPC) appliance).getColor()));
 
                 parameters.appendChild(id);
                 parameters.appendChild(batteryCapacity);
-                parameters.appendChild(os);
-                parameters.appendChild(memoryRom);
-                parameters.appendChild(systemMemory);
-                parameters.appendChild(cpu);
                 parameters.appendChild(displayInches);
+                parameters.appendChild(memoryRom);
+                parameters.appendChild(flashMemoryCapacity);
+                parameters.appendChild(color);
             }
         }
 
