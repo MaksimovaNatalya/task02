@@ -6,7 +6,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerConfigurationException;
 import java.util.List;
 
-public class ToXmlSaver {
+public class ApplianceChooser {
 
     public static void saveAsXml(List<Appliance> appliances) throws TransformerConfigurationException, ParserConfigurationException {
         for (Appliance appliance : appliances) {

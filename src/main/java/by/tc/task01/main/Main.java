@@ -1,7 +1,7 @@
 package by.tc.task01.main;
 
 import by.tc.task01.dao.fromxmlparser.DomParser;
-import by.tc.task01.dao.toxmlparser.ToXmlSaver;
+import by.tc.task01.dao.toxmlparser.ApplianceChooser;
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.entity.criteria.SearchCriteria;
@@ -19,46 +19,39 @@ public class Main {
 
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException, TransformerConfigurationException {
 
-//        // getting a factory to get a document builder afterwards.
-//        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-//        // getting a builder that parses XML, creates a Document structure in the form of a hierarchical tree.
-//        DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
-//        // getting a parsed document. We now have access to all the elements we need.
-//        Document document = builder.parse(new File("src/main/resources/XMLFile.xml"));
-//      //  Document document = builder.parse(new File("src/main/resources/XMLFile.xml"));
-//
-//        // collecting information about each appliance
-//        InfoCollector.collectInformation(document, InfoCollector.LAPTOP);
-//        InfoCollector.collectInformation(document, InfoCollector.OVEN);
-//        InfoCollector.collectInformation(document, InfoCollector.REFRIGERATOR);
-//        InfoCollector.collectInformation(document, InfoCollector.SPEAKERS);
-//        InfoCollector.collectInformation(document, InfoCollector.TABLET_PC);
-//        InfoCollector.collectInformation(document, InfoCollector.VACUUM_CLEANER);
-
 
         DomParser.parseFromXML();
 
-		List <Appliance> appliances;
+        List<Appliance> appliances;
 
-		ServiceFactory factory = ServiceFactory.getInstance();
-		ApplianceService service = factory.getApplianceService();
+        ServiceFactory factory = ServiceFactory.getInstance();
+        ApplianceService service = factory.getApplianceService();
 
+        //laptop criteria
+        Criteria laptopCriteria = new Criteria(SearchCriteria.Laptop.class.getSimpleName());
+        laptopCriteria.add(SearchCriteria.Laptop.OS.toString(), "Windows");
+        laptopCriteria.add(SearchCriteria.Laptop.DISPLAY_INCHS.toString(), "18");
+        laptopCriteria.add(SearchCriteria.Laptop.SYSTEM_MEMORY.toString(), "1500");
 
-       Criteria laptopCriteria = new Criteria(SearchCriteria.Laptop.class.getSimpleName());
-    laptopCriteria.add(SearchCriteria.Laptop.OS.toString(), "Windows");
-//    laptopCriteria.add(SearchCriteria.Laptop.DISPLAY_INCHS.toString(), "18");
- //    laptopCriteria.add(SearchCriteria.Laptop.SYSTEM_MEMORY.toString(), "1500");
-        appliances = service.find(laptopCriteria);
+  //      appliances = service.find(laptopCriteria);
 
-//        Criteria ovenCriteria = new Criteria(SearchCriteria.Oven.class.getSimpleName());
-//        ovenCriteria.add(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), 1000);
-//
-//       appliances = service.find(ovenCriteria);
+        //oven criteria
+        Criteria ovenCriteria = new Criteria(SearchCriteria.Oven.class.getSimpleName());
+        ovenCriteria.add(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), 1000);
+
+        appliances = service.find(ovenCriteria);
+
+        //refrigerator criteria
+        Criteria refrigeratorCriteria = new Criteria(SearchCriteria.Refrigerator.class.getSimpleName());
+        ovenCriteria.add(SearchCriteria.Refrigerator.FREEZER_CAPACITY.toString(), 15);
+
+  //      appliances = service.find(refrigeratorCriteria);
+
 
         PrintApplianceInfo.print(appliances);
 
         try {
-            ToXmlSaver.saveAsXml(appliances);
+            ApplianceChooser.saveAsXml(appliances);
         } catch (TransformerConfigurationException | ParserConfigurationException e) {
             throw new RuntimeException("TransformerConfigurationException | ParserConfigurationException");
         }
