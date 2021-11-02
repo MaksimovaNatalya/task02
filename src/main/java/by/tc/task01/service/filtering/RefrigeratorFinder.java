@@ -3,7 +3,6 @@ package by.tc.task01.service.filtering;
 import by.tc.task01.dao.ApplianceDAO;
 import by.tc.task01.dao.DAOFactory;
 import by.tc.task01.entity.Appliance;
-import by.tc.task01.entity.Laptop;
 import by.tc.task01.entity.Refrigerator;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.entity.criteria.SearchCriteria;
@@ -14,8 +13,8 @@ public class RefrigeratorFinder {
     public static List<Appliance> findRefrigerator(Criteria criteria) {
         DAOFactory factory = DAOFactory.getInstance();
         ApplianceDAO applianceDAO = factory.getApplianceDAO();
-        ArrayList<Refrigerator> refrigerators = applianceDAO.getRefrigerators();
-        List<Appliance> matchingRefrigerators = new ArrayList<>();
+        List<Refrigerator> refrigerators = applianceDAO.getRefrigerators();
+        List<Refrigerator> matchingRefrigerators = new ArrayList<>();
 
         Set entrySet = criteria.entrySet();
         Iterator itr = entrySet.iterator();
@@ -28,7 +27,7 @@ public class RefrigeratorFinder {
             for (Refrigerator refrigerator : refrigerators) {
 
                 if (SearchCriteria.Refrigerator.POWER_CONSUMPTION.toString().equals(key)
-                        && (expectedValue.equals(refrigerator.getPowerConsumption()))) {
+                        && (expectedValue.equals(String.valueOf(refrigerator.getPowerConsumption())))) {
                     matchingRefrigerators.add(refrigerator);
                 }
                 if (SearchCriteria.Refrigerator.WEIGHT.toString().equals(key)
@@ -51,11 +50,10 @@ public class RefrigeratorFinder {
                         && (expectedValue.equals(String.valueOf(refrigerator.getWidth())))) {
                     matchingRefrigerators.add(refrigerator);
                 }
-
             }
-            return matchingRefrigerators;
-
+            refrigerators = matchingRefrigerators;
+            matchingRefrigerators = new ArrayList<>();
         }
-        return matchingRefrigerators;
+        return new ArrayList<>(refrigerators);
     }
 }

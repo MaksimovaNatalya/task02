@@ -13,8 +13,8 @@ public class VacuumCleanerFinder {
     public static List<Appliance> findVacuumCleaner(Criteria criteria) {
         DAOFactory factory = DAOFactory.getInstance();
         ApplianceDAO applianceDAO = factory.getApplianceDAO();
-        ArrayList<VacuumCleaner> vacuumCleaners = applianceDAO.getVacuumCleaners();
-        List<Appliance> matchingVacuumCleaners = new ArrayList<>();
+        List<VacuumCleaner> vacuumCleaners = applianceDAO.getVacuumCleaners();
+        List<VacuumCleaner> matchingVacuumCleaners = new ArrayList<>();
 
         Set entrySet = criteria.entrySet();
         Iterator itr = entrySet.iterator();
@@ -22,7 +22,6 @@ public class VacuumCleanerFinder {
             Map.Entry mapEntry = (Map.Entry) itr.next();
             String key = (String) mapEntry.getKey();
             Object expectedValue = mapEntry.getValue();
-
 
             for (VacuumCleaner vacuumCleaner : vacuumCleaners) {
 
@@ -50,10 +49,10 @@ public class VacuumCleanerFinder {
                         && (expectedValue.equals(String.valueOf(vacuumCleaner.getCleaningWidth())))) {
                     matchingVacuumCleaners.add(vacuumCleaner);
                 }
-
             }
-            return matchingVacuumCleaners;
+            vacuumCleaners = matchingVacuumCleaners;
+            matchingVacuumCleaners = new ArrayList<>();
         }
-        return matchingVacuumCleaners;
+        return new ArrayList<>(vacuumCleaners);
     }
 }

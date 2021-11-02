@@ -11,10 +11,10 @@ public class Validator {
 
 			switch (criteria.getGroupSearchName()) {
 				case LAPTOP:
-					LaptopValidator.validate(criteria);
+					LaptopValidator.validateLaptopCriteria(criteria);
 					break;
 				case OVEN:
-					OvenValidator.validate(criteria);
+					OvenValidator.validateOvenCriteria(criteria);
 					break;
 				case REFRIGERATOR:
 					RefrigeratorValidator.validate(criteria);

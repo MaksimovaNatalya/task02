@@ -29,23 +29,25 @@ public class Main {
 
         //laptop criteria
         Criteria laptopCriteria = new Criteria(SearchCriteria.Laptop.class.getSimpleName());
-        laptopCriteria.add(SearchCriteria.Laptop.OS.toString(), "Windows");
         laptopCriteria.add(SearchCriteria.Laptop.DISPLAY_INCHS.toString(), "18");
-  //      laptopCriteria.add(SearchCriteria.Laptop.SYSTEM_MEMORY.toString(), "1500");
+        laptopCriteria.add(SearchCriteria.Laptop.OS.toString(), "Windows");
+        //      laptopCriteria.add(SearchCriteria.Laptop.SYSTEM_MEMORY.toString(), "1500");
 
-        appliances = service.find(laptopCriteria);
+   //     appliances = service.find(laptopCriteria);
 
         //oven criteria
         Criteria ovenCriteria = new Criteria(SearchCriteria.Oven.class.getSimpleName());
-        ovenCriteria.add(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), 1000);
+        ovenCriteria.add(SearchCriteria.Oven.CAPACITY.toString(), "33");
+        ovenCriteria.add(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), "1000");
 
-   //     appliances = service.find(ovenCriteria);
+     appliances = service.find(ovenCriteria);
 
         //refrigerator criteria
         Criteria refrigeratorCriteria = new Criteria(SearchCriteria.Refrigerator.class.getSimpleName());
-        ovenCriteria.add(SearchCriteria.Refrigerator.FREEZER_CAPACITY.toString(), 15);
+        refrigeratorCriteria.add(SearchCriteria.Refrigerator.FREEZER_CAPACITY.toString(), "15.0");
+        refrigeratorCriteria.add(SearchCriteria.Refrigerator.POWER_CONSUMPTION.toString(), "200");
 
-  //      appliances = service.find(refrigeratorCriteria);
+ //       appliances = service.find(refrigeratorCriteria);
 
 
         PrintApplianceInfo.print(appliances);

@@ -13,8 +13,8 @@ public class SpeakersFinder {
     public static List<Appliance> findSpeakers(Criteria criteria) {
         DAOFactory factory = DAOFactory.getInstance();
         ApplianceDAO applianceDAO = factory.getApplianceDAO();
-        ArrayList<Speakers> speakers = applianceDAO.getSpeakers();
-        List<Appliance> matchingSpeakers = new ArrayList<>();
+        List<Speakers> speakers = applianceDAO.getSpeakers();
+        List<Speakers> matchingSpeakers = new ArrayList<>();
 
         Set entrySet = criteria.entrySet();
         Iterator itr = entrySet.iterator();
@@ -43,9 +43,9 @@ public class SpeakersFinder {
                     matchingSpeakers.add(speakers1);
                 }
             }
-
-            return matchingSpeakers;
+            speakers = matchingSpeakers;
+            matchingSpeakers = new ArrayList<>();
         }
-        return matchingSpeakers;
+        return new ArrayList<>(speakers);
     }
 }

@@ -15,8 +15,8 @@ public class LaptopFinder {
 
         DAOFactory factory = DAOFactory.getInstance();
         ApplianceDAO applianceDAO = factory.getApplianceDAO();
-        ArrayList<Laptop> laptops = applianceDAO.getLaptops();
-        List<Appliance> matchingLaptops = new ArrayList<>();
+        List<Laptop> laptops = applianceDAO.getLaptops();
+        List<Laptop> matchingLaptops = new ArrayList<>();
 
         Set entrySet = criteria.entrySet();
         Iterator itr = entrySet.iterator();
@@ -51,11 +51,10 @@ public class LaptopFinder {
                         && (expectedValue.equals(String.valueOf(laptop.getMemoryRom())))) {
                     matchingLaptops.add(laptop);
                 }
-
             }
-            return matchingLaptops;
-
+            laptops = matchingLaptops;
+            matchingLaptops = new ArrayList<>();
         }
-        return matchingLaptops;
+        return new ArrayList<>(laptops);
     }
 }

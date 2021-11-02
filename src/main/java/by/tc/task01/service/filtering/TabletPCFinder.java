@@ -13,8 +13,8 @@ public class TabletPCFinder {
     public static List<Appliance> findTabletPC(Criteria criteria) {
         DAOFactory factory = DAOFactory.getInstance();
         ApplianceDAO applianceDAO = factory.getApplianceDAO();
-        ArrayList<TabletPC> tabletPCs = applianceDAO.getTabletPCs();
-        List<Appliance> matchingTabletPCs = new ArrayList<>();
+        List<TabletPC> tabletPCs = applianceDAO.getTabletPCs();
+        List<TabletPC> matchingTabletPCs = new ArrayList<>();
 
         Set entrySet = criteria.entrySet();
         Iterator itr = entrySet.iterator();
@@ -47,9 +47,9 @@ public class TabletPCFinder {
                     matchingTabletPCs.add(tabletPC);
                 }
             }
-
-            return matchingTabletPCs;
+            tabletPCs = matchingTabletPCs;
+            matchingTabletPCs = new ArrayList<>();
         }
-        return matchingTabletPCs;
+        return new ArrayList<>(tabletPCs);
     }
 }

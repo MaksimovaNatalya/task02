@@ -20,11 +20,13 @@ public class ApplianceServiceImpl implements ApplianceService {
 
         List<Appliance> matchingAppliances = new ArrayList<>();
 
+
         if (Laptop.class.getSimpleName().equals(criteria.getGroupSearchName())) {
             matchingAppliances = LaptopFinder.findLaptop(criteria);
         }
         if (Oven.class.getSimpleName().equals(criteria.getGroupSearchName())) {
             matchingAppliances = OvenFinder.findOven(criteria);
+
         }
         if (Refrigerator.class.getSimpleName().equals(criteria.getGroupSearchName())) {
             matchingAppliances = RefrigeratorFinder.findRefrigerator(criteria);
