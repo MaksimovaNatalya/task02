@@ -38,7 +38,7 @@ public class Main {
         //oven criteria
         Criteria ovenCriteria = new Criteria(SearchCriteria.Oven.class.getSimpleName());
         ovenCriteria.add(SearchCriteria.Oven.CAPACITY.toString(), "33");
-        ovenCriteria.add(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), "1000");
+        ovenCriteria.add(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), "2000");
 
      appliances = service.find(ovenCriteria);
 
