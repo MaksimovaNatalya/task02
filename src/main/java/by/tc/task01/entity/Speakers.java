@@ -2,8 +2,8 @@ package by.tc.task01.entity;
 
 import java.util.Objects;
 
-public class Speakers extends Appliance{
-	// you may add your own code here
+public class Speakers extends Appliance {
+    // you may add your own code here
 
     private int powerConsumption;
     private int numberOfSpeakers;

@@ -1,7 +1,5 @@
 package by.tc.task01.entity.criteria;
 
-import by.tc.task01.entity.Laptop;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -29,9 +27,8 @@ public class Criteria {
 
 
     public Set entrySet() {
-      return   criteria.entrySet();
+        return criteria.entrySet();
     }
-
 
 
 }

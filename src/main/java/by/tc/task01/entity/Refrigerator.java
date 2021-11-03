@@ -2,8 +2,8 @@ package by.tc.task01.entity;
 
 import java.util.Objects;
 
-public class Refrigerator extends Appliance{
-	// you may add your own code here
+public class Refrigerator extends Appliance {
+    // you may add your own code here
 
     private int powerConsumption;
     private double weight;
@@ -11,7 +11,6 @@ public class Refrigerator extends Appliance{
     private double overallCapacity;
     private double height;
     private double width;
-
 
 
     public Refrigerator(String id, int powerConsumption, double weight, double freezerCapacity, double overallCapacity, double height, double width) {

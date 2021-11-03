@@ -2,8 +2,8 @@ package by.tc.task01.entity;
 
 import java.util.Objects;
 
-public class Laptop extends Appliance{
-	// you may add your own code here
+public class Laptop extends Appliance {
+    // you may add your own code here
 
 
     private double batteryCapacity;

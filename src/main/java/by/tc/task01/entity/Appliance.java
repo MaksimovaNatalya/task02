@@ -5,7 +5,7 @@ import java.util.Objects;
 public class
 Appliance {
 
-final String id;
+    final String id;
 
     public Appliance(String id) {
         this.id = id;

@@ -2,7 +2,7 @@ package by.tc.task01.service.impl;
 
 import by.tc.task01.entity.*;
 import by.tc.task01.entity.criteria.Criteria;
-import by.tc.task01.service.*;
+import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.filtering.*;
 import by.tc.task01.service.validation.Validator;
 

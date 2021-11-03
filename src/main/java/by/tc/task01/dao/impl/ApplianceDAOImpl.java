@@ -1,8 +1,8 @@
 package by.tc.task01.dao.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
-import by.tc.task01.entity.*;
 import by.tc.task01.dao.fromxmlparsing.ParsedAppliances;
+import by.tc.task01.entity.*;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,9 @@ public class ApplianceDAOImpl implements ApplianceDAO {
     }
 
     @Override
-    public ArrayList<Oven> getOvens() { return ParsedAppliances.getOvens(); }
+    public ArrayList<Oven> getOvens() {
+        return ParsedAppliances.getOvens();
+    }
 
     @Override
     public ArrayList<Refrigerator> getRefrigerators() {

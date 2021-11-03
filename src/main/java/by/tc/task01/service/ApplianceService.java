@@ -5,8 +5,8 @@ import by.tc.task01.entity.criteria.Criteria;
 
 import java.util.List;
 
-public interface ApplianceService {	
-	
-	List<Appliance> find(Criteria criteria);
-	
+public interface ApplianceService {
+
+    List<Appliance> find(Criteria criteria);
+
 }

@@ -30,7 +30,9 @@ public class ParsedAppliances {
         return speakers;
     }
 
-    public static ArrayList<TabletPC> getTabletPCS() { return tabletPCS; }
+    public static ArrayList<TabletPC> getTabletPCS() {
+        return tabletPCS;
+    }
 
     public static ArrayList<VacuumCleaner> getVacuumCleaners() {
         return vacuumCleaners;
