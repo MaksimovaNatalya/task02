@@ -26,7 +26,7 @@ public class VacuumCleanerFinder {
             for (VacuumCleaner vacuumCleaner : vacuumCleaners) {
 
                 if (SearchCriteria.VacuumCleaner.POWER_CONSUMPTION.toString().equals(key)
-                        && (expectedValue.equals(vacuumCleaner.getPowerConsumption()))) {
+                        && (expectedValue.equals(String.valueOf(vacuumCleaner.getPowerConsumption())))) {
                     matchingVacuumCleaners.add(vacuumCleaner);
                 }
                 if (SearchCriteria.VacuumCleaner.FILTER_TYPE.toString().equals(key)

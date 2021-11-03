@@ -10,7 +10,7 @@ import static by.tc.task01.entity.criteria.SearchCriteria.Laptop.BATTERY_CAPACIT
 import static by.tc.task01.entity.criteria.SearchCriteria.TabletPC.*;
 
 public class TabletPCValidator {
-    public static boolean validate(Criteria criteria) {
+    public static boolean validateTabletPCCriteria(Criteria criteria) {
         Map<String, Object> tabletParameters = criteria.getCriteria();
         Set<String> keys = tabletParameters.keySet();
 

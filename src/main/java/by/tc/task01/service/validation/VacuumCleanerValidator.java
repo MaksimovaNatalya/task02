@@ -10,7 +10,7 @@ import static by.tc.task01.entity.criteria.SearchCriteria.VacuumCleaner.*;
 
 
 public class VacuumCleanerValidator {
-    public static boolean validate(Criteria criteria) {
+    public static boolean validateVacuumCleanerCriteria(Criteria criteria) {
         Map<String, Object> vacuumCleanerParameters = criteria.getCriteria();
         Set<String> keys = vacuumCleanerParameters.keySet();
 

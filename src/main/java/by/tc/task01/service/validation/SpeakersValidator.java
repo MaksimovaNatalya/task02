@@ -10,7 +10,7 @@ import static by.tc.task01.entity.criteria.SearchCriteria.Speakers.*;
 
 
 public class SpeakersValidator {
-    public static boolean validate(Criteria criteria) {
+    public static boolean validateSpeakersCriteria(Criteria criteria) {
         Map<String, Object> speakersParameters = criteria.getCriteria();
         Set<String> keys = speakersParameters.keySet();
 

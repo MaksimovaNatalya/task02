@@ -17,16 +17,16 @@ public class Validator {
 					OvenValidator.validateOvenCriteria(criteria);
 					break;
 				case REFRIGERATOR:
-					RefrigeratorValidator.validate(criteria);
+					RefrigeratorValidator.validateRefrigeratorCriteria(criteria);
 					break;
 				case SPEAKERS:
-					SpeakersValidator.validate(criteria);
+					SpeakersValidator.validateSpeakersCriteria(criteria);
 					break;
 				case TABLET_PC:
-					TabletPCValidator.validate(criteria);
+					TabletPCValidator.validateTabletPCCriteria(criteria);
 					break;
 				case VACUUM_CLEANER:
-					VacuumCleanerValidator.validate(criteria);
+					VacuumCleanerValidator.validateVacuumCleanerCriteria(criteria);
 					break;
 				default:
 					throw new RuntimeException("Invalid groupSearchName: " + criteria.getGroupSearchName());

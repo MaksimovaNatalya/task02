@@ -27,7 +27,7 @@ public class SpeakersFinder {
             for (Speakers speakers1 : speakers) {
 
                 if (SearchCriteria.Speakers.POWER_CONSUMPTION.toString().equals(key)
-                        && (expectedValue.equals(speakers1.getPowerConsumption()))) {
+                        && (expectedValue.equals(String.valueOf(speakers1.getPowerConsumption())))) {
                     matchingSpeakers.add(speakers1);
                 }
                 if (SearchCriteria.Speakers.NUMBER_OF_SPEAKERS.toString().equals(key)

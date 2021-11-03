@@ -10,7 +10,7 @@ import static by.tc.task01.entity.criteria.SearchCriteria.Refrigerator.*;
 
 
 public class RefrigeratorValidator {
-    public static boolean validate(Criteria criteria) {
+    public static boolean validateRefrigeratorCriteria(Criteria criteria) {
         Map<String, Object> refrigeratorParameters = criteria.getCriteria();
         Set<String> keys = refrigeratorParameters.keySet();
 

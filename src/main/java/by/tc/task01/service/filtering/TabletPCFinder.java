@@ -27,7 +27,7 @@ public class TabletPCFinder {
             for (TabletPC tabletPC : tabletPCs) {
 
                 if (SearchCriteria.TabletPC.BATTERY_CAPACITY.toString().equals(key)
-                        && (expectedValue.equals(tabletPC.getBatteryCapacity()))) {
+                        && (expectedValue.equals(String.valueOf(tabletPC.getBatteryCapacity())))) {
                     matchingTabletPCs.add(tabletPC);
                 }
                 if (SearchCriteria.TabletPC.DISPLAY_INCHES.toString().equals(key)
